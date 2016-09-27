@@ -1,27 +1,35 @@
 #include <stdio.h>
-void swap(int *a,int *b)
-{
-	int temp;
-	temp=*a;
-	*a=*b;
-	*b=temp;
-}
-int insertsort()
+int main()
 {
 
-	int j,n,i;
-	int a[]={1,6,9,3,4,5,9,10};
-	n=10;
-	for(i=0;i<n-1;i++)
+	int j,n,i,k;
+	int a[]={10000,6998,99,666,9,3,4,5,9,10};
+    int temp;
+    n=10;
+	for(i=1;i<n;i++)
 	{
-		for(j=i+1;j<n;j++)
-		{
-			if(a[j]<a[i]) swap(&a[j],&a[i]);
+        temp=a[i];
+		j=i-1;
+        if(temp<a[j])
+        {
+            while(a[j]>temp&&j>-1)
+            {
+                a[j+1]=a[j];
+                j--;
+            }
+        }
+		 a[j+1]=temp;
+		 for(k=0;k<n;k++)
+			{
+			printf("%d ",a[k]);
 		}
+		 printf("\n");
 	}
+	printf("result:");
 	for(i=0;i<n;i++)
 	{
    printf("%d ",a[i]);
 	}
+	printf("\n");
    return 0;
 }//Ö±½Ó²åÈëÅÅÐò
